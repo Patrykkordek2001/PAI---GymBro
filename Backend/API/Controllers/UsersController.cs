@@ -47,9 +47,9 @@ namespace API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<User>> Login(User model)
+        public async Task<ActionResult<User>> Login(string username, string password)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == model.UserName && u.Password == model.Password);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == username && u.Password == password);
 
             if (user == null)
             {
@@ -58,8 +58,5 @@ namespace API.Controllers
 
             return Ok(user);
         }
-
-
-
     }
 }

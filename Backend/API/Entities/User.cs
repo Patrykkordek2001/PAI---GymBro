@@ -10,7 +10,7 @@ namespace API.Entities
 
  
         public string Name { get; set; }
-        [JsonIgnore]
+
         public string Email { get; set; }
 
         [Required]

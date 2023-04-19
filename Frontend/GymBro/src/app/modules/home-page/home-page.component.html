@@ -1,0 +1,18 @@
+
+<div>
+<ng-container *ngIf="isRegisterMode; else loginMode">
+    <h2>Rejestracja</h2>
+    <form (ngSubmit)="register()">
+        
+        <button type="submit">Zarejestruj się</button>
+    </form>
+  </ng-container>
+  
+  <ng-template #loginMode>
+    <h2>Logowanie</h2>
+    <form (ngSubmit)="login()">
+      <!-- pola formularza dla logowania -->
+      <button type="submit">Zaloguj się</button>
+    </form>
+  </ng-template>
+  </div>

@@ -3,10 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalendarComponent } from './modules/calendar/calendar.component';
+import { AddWorkoutComponent } from './modules/add-workout/add-workout.component';
+import { AddMeasurementComponent } from './modules/add-measurement/add-measurement.component';
+import { MeasurementsComponent } from './modules/measurements/measurements.component';
+import { WorkoutsComponent } from './modules/workouts/workouts.component';
+import { HomePageComponent } from './modules/home-page/home-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalendarComponent,
+    AddWorkoutComponent,
+    AddMeasurementComponent,
+    MeasurementsComponent,
+    WorkoutsComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

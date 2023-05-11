@@ -9,6 +9,7 @@ import { AddMeasurementComponent } from './modules/add-measurement/add-measureme
 import { MeasurementsComponent } from './modules/measurements/measurements.component';
 import { WorkoutsComponent } from './modules/workouts/workouts.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
+import { LoginOrRegisterComponent } from './modules/login-or-register/login-or-register.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomePageComponent } from './modules/home-page/home-page.component';
     AddMeasurementComponent,
     MeasurementsComponent,
     WorkoutsComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginOrRegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,36 @@
 
-<div>
-<ng-container *ngIf="isRegisterMode; else loginMode">
-    <h2>Rejestracja</h2>
-    <form (ngSubmit)="register()">
-        
-        <button type="submit">Zarejestruj się</button>
-    </form>
-  </ng-container>
-  
-  <ng-template #loginMode>
-    <h2>Logowanie</h2>
-    <form (ngSubmit)="login()">
-      <!-- pola formularza dla logowania -->
-      <button type="submit">Zaloguj się</button>
-    </form>
-  </ng-template>
+<ng-container *ngIf="!authService?.isAuthenticated()">
+  <div class="login-page">
+    <div class="photo-wrapper">
+      <img src="../../../../assets/login-bg.png" alt="background" class="login-photo"/>
+    </div>
+    <form [formGroup]="formGroup" class="login-form">
+      <div class="login-wrapper">
+        <div class="header-section">
+          <p class="login-form--header">Zaloguj się do systemu</p>
+        </div>
+        <div class="login-section">
+          <label class="login-input login-form--text">Login</label>
+          <input formControlName="username" type="text" class="login-text-field"/>
+        </div>
+        <div class="password-section">
+          <label class="password-input login-form--text ">Hasło</label>
+          <input formControlName="password" type="password" class="login-text-field"/>
+          </div>
+
+          <div class="checkbox-section">
+            <input type="checkbox" class="remember-checkbox--input login-form--text pointer"/>
+            <label>Zapamiętaj mnie</label>
+          </div>
+          <div class="submit-section">
+            <button (click)="login()" class="login-btn">POTWIERDŹ</button>
+          </div>
+          <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+
+          <div class="register-paragraph-section">
+            <p class="register-paragraph">Nie masz konta?<span class="register-span"> Zarejestruj się!</span></p>
+          </div>
+        </div>
+      </form>
   </div>
+</ng-container>

@@ -1,18 +1,19 @@
 ﻿using API.Data;
-using API.Entities;
+using API.Models;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using API.DTO;
 
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly DataContext _dbContext;
 
-        public UsersController(DataContext dbContext)
+        public AuthController(DataContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -31,7 +32,7 @@ namespace API.Controllers
             {
                 return BadRequest("Username already exists");
             }
-
+`
             var user = new User
             {
                 Name= model.Name,
@@ -47,9 +48,9 @@ namespace API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<User>> Login(string username, string password)
+        public async Task<ActionResult<User>> Login(UserDTO userDTO)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == username && u.Password == password);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userDTO.UserName && u.Password == userDTO.Password);
 
             if (user == null)
             {

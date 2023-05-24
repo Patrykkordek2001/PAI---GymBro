@@ -6,11 +6,18 @@ using System.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
+using API.Services.Interfaces;
+using API.Services;
+using API.SqlRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddScoped(typeof(ISqlRepository<>), typeof(SqlRepository<>));
 
+// Add services to the container.
+builder.Services.AddHttpContextAccessor(); // Dodaj tê linijkê
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(options =>
 {

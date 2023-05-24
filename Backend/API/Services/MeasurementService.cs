@@ -14,27 +14,27 @@ namespace API.Services
             _measurementRepository = measurementRepository;
         }
 
-        public async Task AddExcerciseAsync(Measurement measurement)
+        public async Task AddMeasurementAsync(Measurement measurement)
         {
             await _measurementRepository.AddAsync(measurement);
         }
 
-        public async Task DeleteExcerciseAsync(Guid id)
+        public async Task DeleteMeasurementAsync(Guid id)
         {
             await _measurementRepository.DeleteAsync(id);
         }
 
-        public async Task<IEnumerable<Measurement>> GetAllExcercisesAsync()
+        public async Task<IEnumerable<Measurement>> GetAllMeasurementsAsync()
         {
             return await _measurementRepository.GetAllAsync();
         }
 
-        public async Task<Measurement> GetExcerciseByIdAsync(Guid id)
+        public async Task<Measurement> GetMeasurementByIdAsync(Guid id)
         {
             return await _measurementRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateExcerciseAsync(Measurement measurement)
+        public async Task UpdateMeasurementAsync(Measurement measurement)
         {
             await _measurementRepository.UpdateAsync(measurement);
         }

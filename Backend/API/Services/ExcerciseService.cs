@@ -4,7 +4,7 @@ using API.SqlRepository;
 
 namespace API.Services
 {
-    public class ExcerciseService : IExcerciseService
+    public class ExcerciseService :  IExcerciseService
     {
 
         private readonly ISqlRepository<Excercise> _excerciseRepository;

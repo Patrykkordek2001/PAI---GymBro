@@ -4,10 +4,10 @@ namespace API.Services.Interfaces
 {
     public interface IMeasurementService
     {
-        Task AddExcerciseAsync(Measurement measurement);
-        Task DeleteExcerciseAsync(Guid id);
-        Task<IEnumerable<Measurement>> GetAllExcercisesAsync();
-        Task<Measurement> GetExcerciseByIdAsync(Guid id);
-        Task UpdateExcerciseAsync(Measurement measurement);
+        Task AddMeasurementAsync(Measurement measurement);
+        Task DeleteMeasurementAsync(Guid id);
+        Task<IEnumerable<Measurement>> GetAllMeasurementsAsync();
+        Task<Measurement> GetMeasurementByIdAsync(Guid id);
+        Task UpdateMeasurementAsync(Measurement measurement);
     }
 }

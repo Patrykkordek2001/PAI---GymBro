@@ -9,15 +9,20 @@ using Microsoft.OpenApi.Models;
 using API.Services.Interfaces;
 using API.Services;
 using API.SqlRepository;
+using API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped(typeof(ISqlRepository<>), typeof(SqlRepository<>));
 
 // Add services to the container.
-builder.Services.AddHttpContextAccessor(); // Dodaj tê linijkê
+builder.Services.AddHttpContextAccessor(); 
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IExcerciseService, ExcerciseService>();
+builder.Services.AddScoped<IMeasurementService, MeasurementService>();
+builder.Services.AddScoped<IWorkoutService, WorkoutService>();
+
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(options =>
 {

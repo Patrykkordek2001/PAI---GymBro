@@ -14,6 +14,8 @@ namespace API.Data.EntityConfiguration
                 builder.Property(c => c.Password).IsRequired(true);
                 builder.Property(c => c.Email).IsRequired(true);
                 builder.Property(c => c.Name).IsRequired(true); 
+
+
             }
         
 

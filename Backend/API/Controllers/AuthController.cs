@@ -4,58 +4,36 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using API.DTO;
+using API.Services;
+using API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AllowAnonymous]
     public class AuthController : ControllerBase
     {
-        private readonly DataContext _dbContext;
-
-        public AuthController(DataContext dbContext)
+        private readonly IAuthService _authService;
+        public AuthController(IAuthService authService)
         {
-            _dbContext = dbContext;
+            _authService = authService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        [HttpPost("Register")]
+        public async Task<ActionResult> Register(User user)
         {
-            var users = await _dbContext.Users.ToListAsync();
-            return Ok(users);
+            await _authService.RegisterUser(user);
+            return Ok(new { message = "User registered" });
         }
 
-        [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(User model)
+        [HttpPost("Login")]
+        public async Task<ActionResult> Login(UserDTO loginDto)
         {
-            if (await _dbContext.Users.AnyAsync(u => u.UserName == model.UserName))
-            {
-                return BadRequest("Username already exists");
-            }
-`
-            var user = new User
-            {
-                Name= model.Name,
-                UserName = model.UserName,
-                Email = model.Email,
-                Password = model.Password
-            };
-
-            _dbContext.Users.Add(user);
-            await _dbContext.SaveChangesAsync();
-
-            return Ok(user);
-        }
-
-        [HttpPost("login")]
-        public async Task<ActionResult<User>> Login(UserDTO userDTO)
-        {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userDTO.UserName && u.Password == userDTO.Password);
-
-            if (user == null)
-            {
-                return BadRequest("Nieprawidłowa nazwa użytkownika lub hasło");
-            }
+            var user = await _authService.AuthenticateUser(loginDto);
+            if (user == null) return Unauthorized("Wrong login or password!");
+            //var jwtToken = _authService.GenerateJtwToken(user);
 
             return Ok(user);
         }

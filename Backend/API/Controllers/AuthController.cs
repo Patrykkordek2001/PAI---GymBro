@@ -33,7 +33,7 @@ namespace API.Controllers
         {
             var user = await _authService.AuthenticateUser(loginDto);
             if (user == null) return Unauthorized("Wrong login or password!");
-            //var jwtToken = _authService.GenerateJtwToken(user);
+            /var jwtToken = _authService.GenerateJtwToken(user);
 
             return Ok(user);
         }

@@ -3,7 +3,9 @@ using API.DTO;
 using API.Models;
 using API.Services.Interfaces;
 using API.SqlRepository;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -49,6 +51,24 @@ namespace API.Services
 
             return user;
         }
-        
+
+        public string GenerateJwtToken(User user)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes("TwójTajnyKluczJWT"); // Zastąp "TwójTajnyKluczJWT" własnym tajnym kluczem JWT
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+            new Claim(ClaimTypes.Name, user.UserName),
+            // Dodaj inne potrzebne informacje o użytkowniku jako Claims
+        }),
+                Expires = DateTime.UtcNow.AddDays(7), // Ustal czas ważności tokenu
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
     }
 }

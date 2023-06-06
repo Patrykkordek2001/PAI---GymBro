@@ -1,0 +1,55 @@
+# Compiled files
+*.exe
+*.dll
+*.pdb
+
+# NuGet packages
+*.nupkg
+
+# User-specific files
+*.user
+*.suo
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio files
+*.log
+*.vs/
+*.vscode/
+*.sln.iml
+.vsconfig
+
+# Test Results
+[TestRr]esult*/
+[Nn]ode[Tt]est[Bb]uild/
+
+# ReSharper
+_ReSharper*/
+*.resharper*
+*.DotSettings.user
+
+# JetBrains Rider
+.idea/
+
+# Roslyn cache directories
+*.ide/
+*.RoslynCompilationFiles/
+
+# StyleCop
+StyleCopReport.xml
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# TFS 2012 Local Workspace
+$tf/

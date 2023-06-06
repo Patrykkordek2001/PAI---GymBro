@@ -1,0 +1,22 @@
+<div class="main-container">
+    <div class="left-side">
+      <img >
+    </div>
+    <div class="login-container">
+      <form class="login-form" [formGroup]="loginForm">
+        <p class="header">Zaloguj się do systemu</p>
+        <p class="login-header">Login</p>
+        <div>
+          <input formControlName="login">
+        </div>
+        <p class="login-header">Hasło</p>
+        <div>
+          <input formControlName="password" type="password">
+        </div>
+        <br />
+        <button (click)="login()" class="submit-btn">POTWIERDŹ</button>
+        <br />
+        <br />
+        <a style="color: blue; cursor: pointer;" (click)="goToRegisterPage()">Nie masz konta? Zarejestruj się</a>
+      </form>
+  </div>

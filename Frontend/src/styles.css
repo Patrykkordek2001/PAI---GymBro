@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #585858;
+  }
+  
+/* Przyciski */
+.button {
+    background-color: #2b2a2a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Inputy */
+  .input {
+    background-color: #8b8a8a;
+    color: #cccaca;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Zaokrąglone krawędzie dla wszystkich elementów */
+  .rounded {
+    border-radius: 5px;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

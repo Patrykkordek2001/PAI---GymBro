@@ -15,11 +15,14 @@ namespace API.Services
     {
         private readonly ISqlRepository<User> _authRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
+        private readonly IUserService _usersService;
 
 
-
-        public AuthService(ISqlRepository<User> authRepository, IHttpContextAccessor httpContextAccessor)
+        public AuthService(ISqlRepository<User> authRepository, IHttpContextAccessor httpContextAccessor, IUserService userService, IConfiguration configuration)
         {
+            _configuration = configuration;
+            _usersService = userService;
             _authRepository = authRepository;
             _httpContextAccessor = httpContextAccessor;
         }
@@ -52,22 +55,18 @@ namespace API.Services
             return user;
         }
 
-        public string GenerateJwtToken(User user)
+
+        public string GenerateToken()
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("TwójTajnyKluczJWT"); // Zastąp "TwójTajnyKluczJWT" własnym tajnym kluczem JWT
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-            new Claim(ClaimTypes.Name, user.UserName),
-            // Dodaj inne potrzebne informacje o użytkowniku jako Claims
-        }),
-                Expires = DateTime.UtcNow.AddDays(7), // Ustal czas ważności tokenu
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            var key = new SymmetricSecurityKey( Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+           var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt: Audience"], null,
+                expires: DateTime.Now.AddMinutes(1),
+                signingCredentials: credentials);
+
+
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
     }

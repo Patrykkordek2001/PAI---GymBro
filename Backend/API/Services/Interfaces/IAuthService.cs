@@ -5,8 +5,10 @@ namespace API.Services.Interfaces
 {
     public interface IAuthService
     {
-        Task<User?> AuthenticateUser(UserDTO loginDto);
+        Task<User?> AuthenticateUser(UserDTO userDTO);
         string HashPassword(string password);
         Task<User?> RegisterUser(User user);
+
+        string GenerateToken();
     }
 }

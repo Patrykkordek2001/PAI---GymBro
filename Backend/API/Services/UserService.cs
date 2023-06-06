@@ -1,4 +1,5 @@
 ﻿using API.Models;
+using API.Services.Interfaces;
 using API.SqlRepository;
 
 namespace API.Services
@@ -10,11 +11,6 @@ namespace API.Services
         public UserService(ISqlRepository<User> userRepository)
         {
             _userRepository = userRepository;
-        }
-
-        public async Task AddUserAsync(User user)
-        {
-            await _userRepository.AddAsync(user);
         }
 
         public async Task DeleteUserAsync(Guid id)

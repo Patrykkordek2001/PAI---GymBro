@@ -42,10 +42,12 @@ namespace API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WorkoutID")
-                        .HasColumnType("int");
+                    b.Property<Guid>("WorkoutID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("WorkoutID");
 
                     b.ToTable("Excercises");
                 });
@@ -119,11 +121,8 @@ namespace API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ExcerciseId")
+                    b.Property<Guid>("ExerciseID")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("ExerciseID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -134,25 +133,23 @@ namespace API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ExcerciseId");
-
                     b.ToTable("Workouts");
-                });
-
-            modelBuilder.Entity("API.Models.Workout", b =>
-                {
-                    b.HasOne("API.Models.Excercise", "Excercise")
-                        .WithMany("Workouts")
-                        .HasForeignKey("ExcerciseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Excercise");
                 });
 
             modelBuilder.Entity("API.Models.Excercise", b =>
                 {
-                    b.Navigation("Workouts");
+                    b.HasOne("API.Models.Workout", "Workout")
+                        .WithMany("Excercises")
+                        .HasForeignKey("WorkoutID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Workout");
+                });
+
+            modelBuilder.Entity("API.Models.Workout", b =>
+                {
+                    b.Navigation("Excercises");
                 });
 #pragma warning restore 612, 618
         }

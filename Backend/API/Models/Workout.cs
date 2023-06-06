@@ -10,7 +10,7 @@ namespace API.Models
         public DateTime WorkoutDate { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int ExerciseID { get; set; }
-        public virtual Excercise Excercise { get; set; }
+        public Guid ExerciseID { get; set; }
+        public ICollection<Excercise> Excercises { get; set; }
     }
 }

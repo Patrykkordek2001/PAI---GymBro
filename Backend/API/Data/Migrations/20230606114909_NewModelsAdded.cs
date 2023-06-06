@@ -5,26 +5,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Data.Migrations
 {
-    public partial class AddNewModels : Migration
+    /// <inheritdoc />
+    public partial class NewModelsAdded : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Excercises",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NumberOfRepetitions = table.Column<int>(type: "int", nullable: false),
-                    NumberOfSeries = table.Column<int>(type: "int", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WorkoutID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Excercises", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Measurements",
                 columns: table => new
@@ -66,28 +52,47 @@ namespace API.Data.Migrations
                     WorkoutDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExerciseID = table.Column<int>(type: "int", nullable: false),
-                    ExcerciseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ExerciseID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Workouts", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Excercises",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumberOfRepetitions = table.Column<int>(type: "int", nullable: false),
+                    NumberOfSeries = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WorkoutID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Excercises", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Workouts_Excercises_ExcerciseId",
-                        column: x => x.ExcerciseId,
-                        principalTable: "Excercises",
+                        name: "FK_Excercises_Workouts_WorkoutID",
+                        column: x => x.WorkoutID,
+                        principalTable: "Workouts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Workouts_ExcerciseId",
-                table: "Workouts",
-                column: "ExcerciseId");
+                name: "IX_Excercises_WorkoutID",
+                table: "Excercises",
+                column: "WorkoutID");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Excercises");
+
             migrationBuilder.DropTable(
                 name: "Measurements");
 
@@ -96,9 +101,6 @@ namespace API.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Workouts");
-
-            migrationBuilder.DropTable(
-                name: "Excercises");
         }
     }
 }

@@ -11,8 +11,8 @@ namespace API.Models
         public int NumberOfRepetitions { get; set; }
         public int NumberOfSeries { get; set; }
         public string Type { get; set; }
-        public int WorkoutID { get; set; }
-        public virtual ICollection<Workout> Workouts { get; set; }
+        public Guid WorkoutID { get; set; }
+        public Workout Workout { get; set; }
 
 
     }

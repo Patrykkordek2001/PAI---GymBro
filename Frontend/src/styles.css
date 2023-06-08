@@ -1,9 +1,6 @@
-body {
-    background-color: #585858;
-  }
-  
+
 /* Przyciski */
-.button {
+button {
     background-color: #2b2a2a;
     color: #fff;
     padding: 10px 20px;
@@ -12,7 +9,7 @@ body {
   }
   
   /* Inputy */
-  .input {
+  input {
     background-color: #8b8a8a;
     color: #cccaca;
     padding: 10px;
@@ -20,8 +17,8 @@ body {
   }
   
   /* Zaokrąglone krawędzie dla wszystkich elementów */
-  .rounded {
+  rounded {
     border-radius: 5px;
   }
-html, body { height: 100%; }
+html, body { height: 100%;width: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

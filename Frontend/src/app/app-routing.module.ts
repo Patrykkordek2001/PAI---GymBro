@@ -5,15 +5,17 @@ import { AddWorkoutComponent } from './modules/add-workout/add-workout.component
 import { AddMeasurementComponent } from './modules/add-measurement/add-measurement.component';
 import { WorkoutsComponent } from './modules/workouts/workouts.component';
 import { MeasurementsComponent } from './modules/measurements/measurements.component';
-import { LoginPageComponent } from './modules/login/containers/login-page/login-page.component';
+import { LoginPageComponent } from './modules/login/containers/login-page.component';
+import { RegisterPageComponent } from './modules/register/containers/register-page.component';
 
 const routes: Routes = [
-  {path: 'login-page', component: LoginPageComponent},
+  {path: 'login', component: LoginPageComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'add-workout', component: AddWorkoutComponent},
   {path: 'add-measurement', component: AddMeasurementComponent},
   {path: 'workouts', component: WorkoutsComponent},
   {path: 'measurements', component: MeasurementsComponent},
+  {path: 'register', component: RegisterPageComponent},
 
 ];
 

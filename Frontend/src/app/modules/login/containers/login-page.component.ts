@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -10,9 +11,9 @@ import { Router } from '@angular/router';
 export class LoginPageComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.formBuilder.group({
-      login: ["", Validators.required],
+      username: ["", Validators.required],
       password: ["", Validators.required],
     });
   }
@@ -20,15 +21,16 @@ export class LoginPageComponent {
 
 
  login(): void {
- //   this.authService.loginToSystem(this.form.value).subscribe(response => {
- //     localStorage.setItem('tokenZTPAI', response.token);
-  //    this.authService.updateLoggedIn(true);
-   //   this.router.navigateByUrl('/');
-  //  });
-  }
+  console.log(this.loginForm.value);
+   this.authService.loginToSystem(this.loginForm.value).subscribe(response => {
+
+      localStorage.setItem('tokenJWT', response.token);
+     this.authService.updateLoggedIn(true);
+      this.router.navigateByUrl('/add-workout');
+    });
+ }
 
   goToRegisterPage(): void{
-    this.router.navigateByUrl('/');
     this.router.navigateByUrl('/register');
   }
 }

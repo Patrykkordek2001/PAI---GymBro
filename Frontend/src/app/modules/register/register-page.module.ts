@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginPageComponent } from './containers/login-page.component';
+import { RegisterPageComponent } from './containers/register-page.component';
 
 
 
 @NgModule({
-  declarations: [LoginPageComponent],
+  declarations: [RegisterPageComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
 
   ],
-  exports: [LoginPageComponent],
+  exports: [RegisterPageComponent],
 })
-export class LoginPageModule { }
+export class RegisterPageModule { }

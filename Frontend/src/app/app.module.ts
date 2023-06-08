@@ -10,6 +10,8 @@ import { MeasurementsComponent } from './modules/measurements/measurements.compo
 import { WorkoutsComponent } from './modules/workouts/workouts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageModule } from './modules/login/login-page.module';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterPageModule } from './modules/register/register-page.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LoginPageModule } from './modules/login/login-page.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
-    LoginPageModule
+    LoginPageModule,
+    HttpClientModule,
+    RegisterPageModule,
     
   ],
   providers: [],

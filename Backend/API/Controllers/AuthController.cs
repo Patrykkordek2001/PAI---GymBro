@@ -41,7 +41,7 @@ namespace API.Controllers
 
         [HttpPost("Login")]
         public async Task<ActionResult> Login(UserDTO userDTO)
-        {
+            {
 
             var user = await _authService.AuthenticateUser(userDTO);
             if (user == null) return Unauthorized("Wrong login or password!");

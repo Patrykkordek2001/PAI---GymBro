@@ -1,0 +1,19 @@
+<title>Strona logowania</title>
+<div class = "main-container">
+  <form class="login-form" [formGroup] = "loginForm">
+    <img src="logo.jpg" alt="Logo GymBro">
+    <div class = "container">
+    <div class = "inputs">
+      <label>Login:</label>
+      <input type="text" placeholder="Login" formControlName="username"><br>
+    </div>
+    <div class = "inputs">
+      <label>Hasło:</label>
+      <input type="password" placeholder="Hasło" formControlName="password"><br>
+    </div>
+      <button (click)="login()" type="submit">Zaloguj</button>
+      <button (click)="goToRegisterPage()" type="reset">Rejestracja</button>
+    </div>
+    
+  </form>
+</div>

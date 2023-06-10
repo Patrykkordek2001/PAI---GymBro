@@ -6,13 +6,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('tło.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .login-form {
-  margin-top: 10vh;
+
   height: 50vh;
   width: 20vw; /* dostosuj szerokość formularza do własnych potrzeb */
   text-align: center;
@@ -54,6 +53,4 @@ label{
   margin-left: 4.5vw; /* dodano odstęp od prawej strony labela */
   
 }
-.container{
-  margin-top: 15vh;
-}
+

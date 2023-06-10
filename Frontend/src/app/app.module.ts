@@ -5,21 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './modules/calendar/calendar.component';
 import { AddWorkoutComponent } from './modules/add-workout/add-workout.component';
-import { AddMeasurementComponent } from './modules/add-measurement/add-measurement.component';
-import { MeasurementsComponent } from './modules/measurements/measurements.component';
 import { WorkoutsComponent } from './modules/workouts/workouts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageModule } from './modules/login/login-page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterPageModule } from './modules/register/register-page.module';
+import { AddMeasurementModule } from './modules/add-measurement/add-measurement.module';
+import { MeasurementsModule } from './modules/measurements/measurements.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
     AddWorkoutComponent,
-    AddMeasurementComponent,
-    MeasurementsComponent,
     WorkoutsComponent,
      
    ],
@@ -31,6 +29,8 @@ import { RegisterPageModule } from './modules/register/register-page.module';
     LoginPageModule,
     HttpClientModule,
     RegisterPageModule,
+    AddMeasurementModule,
+    MeasurementsModule
     
   ],
   providers: [],

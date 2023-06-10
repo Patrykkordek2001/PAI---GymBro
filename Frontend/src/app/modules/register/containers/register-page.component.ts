@@ -24,7 +24,7 @@ export class RegisterPageComponent {
 
  register(): void {
   console.log(this.registerForm.value);
-   this.authService.registerToTheSystem(this.registerForm.value).subscribe(response => {
+   this.authService.register(this.registerForm.value).subscribe(response => {
     console.log(response);
      this.authService.updateLoggedIn(true);
       this.router.navigateByUrl('/login');

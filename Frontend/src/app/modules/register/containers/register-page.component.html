@@ -1,26 +1,28 @@
 <title>Strona logowania</title>
-<div class = "main-container">
-  <form class="login-form" [formGroup] = "registerForm">
-    <img src="logo.jpg" alt="Logo GymBro">
-    <div class = "container">
-      <div class = "inputs">
-        <label>Imie:</label>
-        <input type="text" placeholder="Name" formControlName="name"><br>
+<div class="main-container">
+  <form class="login-form" [formGroup]="registerForm">
+    <img src="../../../../assets/logo.png" alt="Logo GymBro">
+    <div class="wraper">
+      <div class="container">
+        <div class="inputs">
+          <label>Imie:</label>
+          <input type="text" placeholder="Name" formControlName="name"><br>
+        </div>
+        <div class="inputs">
+          <label>E-mail:</label>
+          <input type="email" placeholder="Email" formControlName="email"><br>
+        </div>
+        <div class="inputs">
+          <label>Login:</label>
+          <input type="text" placeholder="Login" formControlName="username"><br>
+        </div>
+        <div class="inputs">
+          <label>Hasło:</label>
+          <input type="password" placeholder="Hasło" formControlName="password"><br>
+        </div>
       </div>
-      <div class = "inputs">
-        <label>E-mail:</label>
-        <input type="email" placeholder="Email" formControlName="email"><br>
-      </div>
-    <div class = "inputs">
-      <label>Login:</label>
-      <input type="text" placeholder="Login" formControlName="username"><br>
-    </div>
-    <div class = "inputs">
-      <label>Hasło:</label>
-      <input type="password" placeholder="Hasło" formControlName="password"><br>
     </div>
       <button (click)="register()" type="submit">Zaloguj</button>
       <button (click)="goToLoginPage()" type="reset">Anuluj</button>
-    </div>   
   </form>
 </div>

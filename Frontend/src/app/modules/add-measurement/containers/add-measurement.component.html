@@ -1,0 +1,43 @@
+<title>Dodaj pomiar</title>
+<div class="main-container">
+    <form class="login-form" [formGroup]="measurementForm">
+        <div class="inputs">
+            <label>Data:</label>
+            <input type="date" placeholder="Data pomiaru" formControlName="date"><br>
+        </div>
+        <div class="container">
+            <div class="left-side">
+                <div class="inputs">
+                    <label>Waga:</label>
+                    <input type="number" placeholder="Waga" formControlName="weight"><br>
+                </div>
+                <div class="inputs">
+                    <label>Ramię:</label>
+                    <input type="number" placeholder="Ramię" formControlName="arms"><br>
+                </div>
+
+                <div class="inputs">
+                    <label>Klatka:</label>
+                    <input type="number" placeholder="Klatka" formControlName="chest"><br>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="inputs">
+                    <label>Talia:</label>
+                    <input type="number" placeholder="Talia" formControlName="waist"><br>
+                </div>
+                <div class="inputs">
+                    <label>Biodra:</label>
+                    <input type="number" placeholder="Biodra" formControlName="hips"><br>
+                </div>
+                <div class="inputs">
+                    <label>Uda:</label>
+                    <input type="number" placeholder="Uda" formControlName="thighs"><br>
+                </div>
+            </div>
+        </div>
+        <button (click)="submit()" type="submit">Zapisz</button>
+        <button (click)="reset()" type="reset">Anuluj</button>
+
+    </form>
+</div>

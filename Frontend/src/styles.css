@@ -11,7 +11,8 @@ button {
   /* Inputy */
   input {
     background-color: #8b8a8a;
-    color: #cccaca;
+    color: white;
+    font-weight: bolder;
     padding: 10px;
     border-radius: 5px;
   }
@@ -20,5 +21,5 @@ button {
   rounded {
     border-radius: 5px;
   }
-html, body { height: 100%;width: 100%; }
+html, body { height: 100%;width: 100%; background-image: url('assets/tło.jpg');}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -9,8 +9,6 @@ import { Measurement } from '../models/measurement.model';
 export class MeasurementService {
   constructor(private httpClient: HttpClient) { }
 
-
-
   addMeasurement(measurementData: Measurement): Observable<any> {
     return this.httpClient.post<any>('http://localhost:7131/api/Measurement/AddMeasurement', measurementData);
   }
@@ -18,6 +16,8 @@ export class MeasurementService {
   getAllMeasurements(): Observable<Measurement[]> {
     return this.httpClient.get<Measurement[]>('http://localhost:7131/api/Measurement/GetAllMeasurements');
   }
+
+  
 
 
 }

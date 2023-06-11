@@ -27,7 +27,7 @@ export class LoginPageComponent {
     this.authService.login(this.loginForm.value).subscribe((response) => {
       localStorage.setItem('tokenJWT', response.token);
       this.authService.updateLoggedIn(true);
-      this.router.navigateByUrl('/workouts');
+      this.router.navigateByUrl('/add-measurement');
     });
   }
 

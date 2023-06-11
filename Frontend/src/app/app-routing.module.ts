@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { CalendarComponent } from './modules/calendar/calendar.component';
 import { AddWorkoutComponent } from './modules/add-workout/add-workout.component';
 import { WorkoutsComponent } from './modules/workouts/workouts.component';
@@ -7,6 +7,8 @@ import { LoginPageComponent } from './modules/login/containers/login-page.compon
 import { RegisterPageComponent } from './modules/register/containers/register-page.component';
 import { AddMeasurementComponent } from './modules/add-measurement/containers/add-measurement.component';
 import { MeasurementsComponent } from './modules/measurements/containers/measurements.component';
+import { RoutesRecognized } from '@angular/router';
+
 
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
@@ -27,4 +29,12 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof RoutesRecognized && event.url === '/') {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+ }

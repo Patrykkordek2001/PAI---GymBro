@@ -22,7 +22,6 @@ builder.Services.AddScoped(typeof(ISqlRepository<>), typeof(SqlRepository<>));
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IExcerciseService, ExcerciseService>();
 builder.Services.AddScoped<IMeasurementService, MeasurementService>();
 builder.Services.AddScoped<IWorkoutService, WorkoutService>();
 builder.Services.AddScoped<IUserService, UserService>();

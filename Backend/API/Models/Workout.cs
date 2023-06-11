@@ -11,6 +11,5 @@ namespace API.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public Guid ExerciseID { get; set; }
-        public ICollection<Excercise> Excercises { get; set; }
     }
 }

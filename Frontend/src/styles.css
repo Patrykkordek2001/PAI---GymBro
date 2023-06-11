@@ -9,7 +9,7 @@ button {
   }
   
   /* Inputy */
-  input {
+  input,textarea {
     background-color: #8b8a8a;
     color: white;
     font-weight: bolder;

@@ -13,7 +13,6 @@ namespace API.Data.EntityConfiguration
             builder.Property(c => c.WorkoutDate).IsRequired(true);
             builder.Property(c => c.Title).IsRequired(true);
             builder.Property(c => c.Description).IsRequired(true);
-            builder.Property(c => c.ExerciseID).IsRequired(true);
     }
     }
 }

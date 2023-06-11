@@ -1,1 +1,24 @@
-<p>add-workout works!</p>
+<title>Dodaj pomiar</title>
+<div class="main-container">
+    <form class="login-form" [formGroup]="workoutForm">
+        <div class="inputs">
+            <label>Data:</label>
+            <input type="date" placeholder="Data pomiaru" formControlName="workoutDate"><br>
+        </div>
+        <div class="container">
+            <div class="left-side">
+                <div class="inputs">
+                    <label>Tytuł:</label>
+                    <input type="text" placeholder="Tytuł" formControlName="title"><br>
+                </div>
+                <div class="inputs">
+                    <label>Opis treningu:</label>
+                    <textarea name="description" id="" cols="60" rows="10" formControlName="description"></textarea><br>
+                </div>
+            </div>
+        </div>
+        <button (click)="submit()" type="submit">Zapisz</button>
+        <button (click)="reset()" type="reset">Anuluj</button>
+
+    </form>
+</div>

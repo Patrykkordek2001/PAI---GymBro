@@ -1,5 +1,5 @@
 export interface Measurement{
-    date: Date;
+    measurementDate: Date;
     weight: number;
     arms: number;
     chest: number;

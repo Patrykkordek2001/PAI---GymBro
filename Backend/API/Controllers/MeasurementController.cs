@@ -3,6 +3,7 @@ using API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace API.Controllers
 {
@@ -42,7 +43,7 @@ namespace API.Controllers
         {
             await _measurementService.AddMeasurementAsync(measurement);
 
-            return Ok("Added new measurement");
+            return Ok(new { message = "Added new measurement" });
         }
 
         [HttpPut("UpdateMeasurement")]
@@ -50,7 +51,7 @@ namespace API.Controllers
         {
             await _measurementService.UpdateMeasurementAsync(measurement);
 
-            return Ok("Updated measurement");
+           return Ok(new { message = "Updated measurement" });
         }
 
         [HttpDelete("DeleteMeasurement/{id}")]
@@ -58,7 +59,7 @@ namespace API.Controllers
         {
             await _measurementService.DeleteMeasurementAsync(id);
 
-            return Ok("Deleted measurement");
+             return Ok(new { message = "Deleted measurement" });
         }
     }
 }

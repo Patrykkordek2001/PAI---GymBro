@@ -4,7 +4,6 @@ import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './modules/calendar/calendar.component';
-import { AddWorkoutComponent } from './modules/add-workout/add-workout.component';
 import { WorkoutsComponent } from './modules/workouts/workouts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageModule } from './modules/login/login-page.module';
@@ -12,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterPageModule } from './modules/register/register-page.module';
 import { AddMeasurementModule } from './modules/add-measurement/add-measurement.module';
 import { MeasurementsModule } from './modules/measurements/measurements.module';
+import { AddWorkoutComponent } from './modules/add-workout/containers/add-workout.component';
 
 @NgModule({
   declarations: [

@@ -1,2 +1,7 @@
 
 *.vsidx
+*.vsidx
+*.dll
+*.dll
+*.pdb
+Backend/.vs/GymBro/v17/.suo

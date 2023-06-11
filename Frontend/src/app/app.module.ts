@@ -7,12 +7,12 @@ import { CalendarComponent } from './modules/calendar/calendar.component';
 import { WorkoutsComponent } from './modules/workouts/workouts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageModule } from './modules/login/login-page.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterPageModule } from './modules/register/register-page.module';
 import { AddMeasurementModule } from './modules/add-measurement/add-measurement.module';
 import { MeasurementsModule } from './modules/measurements/measurements.module';
-import { AddWorkoutComponent } from './modules/add-workout/containers/add-workout.component';
 import { AddWorkoutModule } from './modules/add-workout/add-workout.module';
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,11 @@ import { AddWorkoutModule } from './modules/add-workout/add-workout.module';
     AddWorkoutModule
     
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

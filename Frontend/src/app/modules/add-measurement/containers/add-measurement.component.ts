@@ -18,7 +18,7 @@ export class AddMeasurementComponent {
     private measurementService: MeasurementService
   ) {
     this.measurementForm = this.formBuilder.group({
-      date: [  Date.now, Validators.required],
+      measurementDate: [  Date.now, Validators.required],
       weight: ['', Validators.required],
       arms: ['', Validators.required],
       chest: ['', Validators.required],
@@ -31,7 +31,7 @@ export class AddMeasurementComponent {
   submit(): void {
     console.log(this.measurementForm.value);
     this.measurementService.addMeasurement(this.measurementForm.value).subscribe((response) => {
-      this.router.navigateByUrl('/measurement');
+      //window.location.reload();
     });
   }
 

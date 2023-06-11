@@ -41,7 +41,8 @@ namespace API.Controllers
         {
             await _workoutService.AddWorkoutAsync(workout);
 
-            return Ok("Added new hour");
+
+            return Ok(new { message = "Added new workout" });
         }
 
         [HttpPut("UpdateWorkout")]
@@ -49,7 +50,7 @@ namespace API.Controllers
         {
             await _workoutService.UpdateWorkoutAsync(workout);
 
-            return Ok("Updated hour");
+            return Ok(new { message = "Updated workout" });
         }
 
         [HttpDelete("DeleteWorkout/{id}")]
@@ -57,7 +58,7 @@ namespace API.Controllers
         {
             await _workoutService.DeleteWorkoutAsync(id);
 
-            return Ok("Deleted hour");
+            return Ok(new { message = "Deleted workout" });
         }
     }
 }

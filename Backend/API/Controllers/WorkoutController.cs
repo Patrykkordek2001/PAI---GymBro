@@ -39,17 +39,17 @@ namespace API.Controllers
         }
 
         [HttpPost("AddWorkout")]
-        public async Task<ActionResult<Workout>> AddWorkout(Workout hour)
+        public async Task<ActionResult<Workout>> AddWorkout(Workout workout)
         {
-            await _workoutService.AddWorkoutAsync(hour);
+            await _workoutService.AddWorkoutAsync(workout);
 
             return Ok("Added new hour");
         }
 
         [HttpPut("UpdateWorkout")]
-        public async Task<IActionResult> UpdateWorkout(Workout hour)
+        public async Task<IActionResult> UpdateWorkout(Workout workout)
         {
-            await _workoutService.UpdateWorkoutAsync(hour);
+            await _workoutService.UpdateWorkoutAsync(workout);
 
             return Ok("Updated hour");
         }

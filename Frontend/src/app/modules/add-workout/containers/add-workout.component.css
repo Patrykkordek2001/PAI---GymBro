@@ -1,0 +1,69 @@
+
+
+.main-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-form {
+    margin-top: 10vh;
+    height: 55vh;
+    width: 40vw; /* dostosuj szerokość formularza do własnych potrzeb */
+    text-align: center;
+    background-color: rgba(138, 135, 135, 0.7); /* ustawienie tła z przezroczystością */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    width: 60%;
+    height: 30px;
+  }
+  
+  button {
+    display: inline-block;
+    margin-right: 10px;
+    color: rgb(255, 255, 255);
+    height: 50px;
+    width: 10vw;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+  }
+  h2 {
+    font-size: xx-large;
+    font-style: italic;
+    font-family: serif;
+    font-weight: bold;
+    margin-top: 5vh;
+    
+  }
+  
+  .inputs{
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 15vw;
+  }
+  label{
+    color: white;
+    
+  }
+  .container{
+    margin-top: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  textarea{
+  
+
+  }
+  

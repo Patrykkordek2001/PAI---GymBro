@@ -12,14 +12,13 @@ import { RegisterPageModule } from './modules/register/register-page.module';
 import { AddMeasurementModule } from './modules/add-measurement/add-measurement.module';
 import { MeasurementsModule } from './modules/measurements/measurements.module';
 import { AddWorkoutComponent } from './modules/add-workout/containers/add-workout.component';
+import { AddWorkoutModule } from './modules/add-workout/add-workout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
-    AddWorkoutComponent,
     WorkoutsComponent,
-     
    ],
   imports: [
     BrowserModule,
@@ -30,7 +29,8 @@ import { AddWorkoutComponent } from './modules/add-workout/containers/add-workou
     HttpClientModule,
     RegisterPageModule,
     AddMeasurementModule,
-    MeasurementsModule
+    MeasurementsModule,
+    AddWorkoutModule
     
   ],
   providers: [],

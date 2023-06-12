@@ -10,6 +10,7 @@
 .table-container {
   max-width: 800px;
   width: 100%;
+  overflow-x: auto; /* Dodano scroll poziomy dla tabeli */
 }
 
 table {
@@ -25,6 +26,7 @@ thead {
 
 th {
   color: white;
+  white-space: nowrap; /* Zapobiega zawijaniu tekstu w nagłówkach */
 }
 
 th,
@@ -32,6 +34,7 @@ td {
   padding: 12px 15px;
   text-align: center;
   border-bottom: 1px solid #ddd;
+  white-space: nowrap; /* Zapobiega zawijaniu tekstu w komórkach */
 }
 
 tbody tr:nth-child(even) {
@@ -56,12 +59,25 @@ td:not(:first-child):not(:last-child) {
 
 td.description {
   width: 40%;
+  white-space: normal; /* Pozwala na zawijanie tekstu w opisach */
 }
 
 .description-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* Określona liczba wierszy */
+  -webkit-line-clamp: 3;
   overflow: hidden;
   word-break: break-word;
+}
+
+#measurement-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
 }

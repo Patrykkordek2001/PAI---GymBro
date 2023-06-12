@@ -4,29 +4,25 @@ import { Router } from '@angular/router';
 import { MeasurementPreview } from 'src/app/models/measurementPreview.model';
 import { MeasurementService } from 'src/app/services/measurement.service';
 
-
 @Component({
   selector: 'app-measurements',
   templateUrl: './measurements.component.html',
-  styleUrls: ['./measurements.component.css']
+  styleUrls: ['./measurements.component.css'],
 })
-export class MeasurementsComponent implements OnInit{
-  
+export class MeasurementsComponent implements OnInit {
+  measurements: MeasurementPreview[] = [];
 
-  measurements: MeasurementPreview[] =[];
-
-  constructor(
-    private measurementService: MeasurementService
-  ) {
-  }
+  constructor(private measurementService: MeasurementService) {}
   ngOnInit(): void {
-    this.measurementService.getAllMeasurements().subscribe(x => {
+    this.measurementService.getAllMeasurements().subscribe((x) => {
       console.log(x);
       this.measurements = x;
     });
   }
 
-  deleteMeasurement(measurementId:string){
-    this.measurementService.deleteMeasurement(measurementId).subscribe(res =>location.reload());
+  deleteMeasurement(measurementId: string) {
+    this.measurementService
+      .deleteMeasurement(measurementId)
+      .subscribe((res) => location.reload());
   }
 }

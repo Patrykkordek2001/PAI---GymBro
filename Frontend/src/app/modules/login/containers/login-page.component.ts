@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginPageComponent {
     this.authService.login(this.loginForm.value).subscribe((response) => {
       localStorage.setItem('tokenJWT', response.token);
       this.authService.updateLoggedIn(true);
-      this.router.navigateByUrl('/add-measurement');
+      this.router.navigateByUrl('/workouts');
     });
   }
 

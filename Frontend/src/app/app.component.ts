@@ -4,7 +4,7 @@ import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'GymBro';
@@ -13,11 +13,11 @@ export class AppComponent implements OnInit {
     this.checkToken();
   }
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   private checkToken(): void {
     var token = localStorage.getItem('tokenJWT');
-    var isLoggedIn = (token !== null);
+    var isLoggedIn = token !== null;
     this.authService.updateLoggedIn(isLoggedIn);
   }
 

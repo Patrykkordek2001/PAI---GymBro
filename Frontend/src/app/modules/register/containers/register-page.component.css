@@ -1,5 +1,3 @@
-
-
 .main-container {
   height: 100%;
   width: 100%;
@@ -13,9 +11,9 @@
 .login-form {
   margin-top: 10vh;
   height: 75vh;
-  width: 20vw; 
+  width: 20vw;
   text-align: center;
-  background-color: rgba(138, 135, 135, 0.7); 
+  background-color: rgba(138, 135, 135, 0.7);
   padding: 20px;
   border-radius: 10px;
 }
@@ -37,22 +35,20 @@ h2 {
   font-style: italic;
   font-family: serif;
   font-weight: bold;
-  
 }
 
-.inputs{
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+.inputs {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
-label{
+label {
   color: white;
   align-self: flex-start; /* dodano align-self na flex-start */
-  
 }
-.wraper{
+.wraper {
   display: flex;
   justify-content: center;
   width: 100%;

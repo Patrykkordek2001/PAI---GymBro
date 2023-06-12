@@ -7,24 +7,22 @@ import { WorkoutService } from 'src/app/services/workout.service';
 @Component({
   selector: 'app-workouts',
   templateUrl: './workouts.component.html',
-  styleUrls: ['./workouts.component.css']
+  styleUrls: ['./workouts.component.css'],
 })
 export class WorkoutsComponent {
-  workouts: WorkoutPreview[] =[];
+  workouts: WorkoutPreview[] = [];
 
-  constructor(
-    private workoutService: WorkoutService
-  ) {
-  }
+  constructor(private workoutService: WorkoutService) {}
   ngOnInit(): void {
-    this.workoutService.getAllWorkouts().subscribe(x => {
+    this.workoutService.getAllWorkouts().subscribe((x) => {
       console.log(x);
       this.workouts = x;
     });
   }
 
-  deleteWorkout(measurementId:string){
-    this.workoutService.deleteWorkout(measurementId).subscribe(res =>location.reload());
+  deleteWorkout(measurementId: string) {
+    this.workoutService
+      .deleteWorkout(measurementId)
+      .subscribe((res) => location.reload());
   }
 }
-

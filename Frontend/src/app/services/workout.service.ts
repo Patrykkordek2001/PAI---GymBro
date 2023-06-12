@@ -5,22 +5,28 @@ import { Observable } from 'rxjs';
 import { WorkoutPreview } from '../models/workoutPreview.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WorkoutService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   addWorkout(workoutData: Workout): Observable<any> {
     console.log(workoutData);
-    return this.httpClient.post<any>('http://localhost:7131/api/Workout/AddWorkout', workoutData);
+    return this.httpClient.post<any>(
+      'http://localhost:7131/api/Workout/AddWorkout',
+      workoutData
+    );
   }
 
   getAllWorkouts(): Observable<WorkoutPreview[]> {
-    return this.httpClient.get<WorkoutPreview[]>('http://localhost:7131/api/Workout/GetAllWorkouts');
+    return this.httpClient.get<WorkoutPreview[]>(
+      'http://localhost:7131/api/Workout/GetAllWorkouts'
+    );
   }
 
   deleteWorkout(workoutId: string): Observable<any> {
-    return this.httpClient.delete<any>('http://localhost:7131/api/Measurement/DeleteWorkout/'+ workoutId);
+    return this.httpClient.delete<any>(
+      'http://localhost:7131/api/Measurement/DeleteWorkout/' + workoutId
+    );
   }
 }

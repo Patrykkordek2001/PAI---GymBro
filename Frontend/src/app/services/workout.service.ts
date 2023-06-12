@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Workout } from '../models/workout.model';
 import { Observable } from 'rxjs';
+import { WorkoutPreview } from '../models/workoutPreview.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,11 @@ export class WorkoutService {
     return this.httpClient.post<any>('http://localhost:7131/api/Workout/AddWorkout', workoutData);
   }
 
-  getAllWorkouts(): Observable<Workout[]> {
-    return this.httpClient.get<Workout[]>('http://localhost:7131/api/Workout/GetAllWorkouts');
+  getAllWorkouts(): Observable<WorkoutPreview[]> {
+    return this.httpClient.get<WorkoutPreview[]>('http://localhost:7131/api/Workout/GetAllWorkouts');
+  }
+
+  deleteWorkout(workoutId: string): Observable<any> {
+    return this.httpClient.delete<any>('http://localhost:7131/api/Measurement/DeleteWorkout/'+ workoutId);
   }
 }

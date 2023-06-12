@@ -1,1 +1,33 @@
-<p>measurements works!</p>
+<div class="container">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Data pomiaru</th>
+            <th>Waga (kg)</th>
+            <th>Ramiona (cm)</th>
+            <th>Klatka piersiowa (cm)</th>
+            <th>Talia (cm)</th>
+            <th>Biodra (cm)</th>
+            <th>Uda (cm)</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let measurement of measurements">
+            <td>{{ measurement.measurementDate | date }}</td>
+            <td>{{ measurement.weight }} kg</td>
+            <td>{{ measurement.arms }} cm</td>
+            <td>{{ measurement.chest }} cm</td>
+            <td>{{ measurement.waist }} cm</td>
+            <td>{{ measurement.hips }} cm</td>
+            <td>{{ measurement.thighs }} cm</td>
+            <td>
+              <button (click)="deleteMeasurement(measurement.id)">Usuń</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

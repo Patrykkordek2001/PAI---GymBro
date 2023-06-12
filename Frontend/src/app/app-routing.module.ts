@@ -30,5 +30,11 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof RoutesRecognized && event.url === '/') {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
  }

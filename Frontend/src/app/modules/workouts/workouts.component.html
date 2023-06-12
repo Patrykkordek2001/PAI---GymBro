@@ -1,1 +1,27 @@
-<p>workouts works!</p>
+<div class="container">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Data treningu</th>
+            <th>Tytuł</th>
+            <th>Opis</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let workout of workouts">
+            <td>{{ workout.workoutDate | date }}</td>
+            <td>{{ workout.title }}</td>
+            <td>
+              <div class="description-text">{{ workout.description }}</div>
+            </td>
+            <td>
+              <button (click)="deleteWorkout(workout.id)">Usuń</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

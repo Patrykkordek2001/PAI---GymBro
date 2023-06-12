@@ -56,7 +56,7 @@ namespace API.Data.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Measurements");
+                    b.ToTable("Measurements", (string)null);
                 });
 
             modelBuilder.Entity("API.Models.User", b =>
@@ -83,7 +83,7 @@ namespace API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("API.Models.Workout", b =>
@@ -110,7 +110,7 @@ namespace API.Data.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Workouts");
+                    b.ToTable("Workouts", (string)null);
                 });
 
             modelBuilder.Entity("API.Models.Measurement", b =>

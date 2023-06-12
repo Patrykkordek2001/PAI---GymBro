@@ -6,4 +6,5 @@ export interface Measurement{
     waist: number;
     hips: number;
     thighs: number;
+    userID:string;
 }

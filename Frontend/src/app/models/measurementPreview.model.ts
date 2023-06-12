@@ -7,4 +7,5 @@ export interface MeasurementPreview{
     waist: number;
     hips: number;
     thighs: number;
+    
 }

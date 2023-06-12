@@ -35,4 +35,9 @@ export class AddWorkoutComponent {
     this.workoutForm.markAsPristine();
     this.workoutForm.markAsUntouched();
   }
+
+  back(): void {
+    this.reset();
+    this.router.navigate(['/workouts']);
+  }
 }

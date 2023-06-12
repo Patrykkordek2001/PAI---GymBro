@@ -11,7 +11,7 @@ namespace API.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public Guid? UserID { get; set; }
-        public User User { get; set; }
+        public User? User { get; set; }
 
     }
 }

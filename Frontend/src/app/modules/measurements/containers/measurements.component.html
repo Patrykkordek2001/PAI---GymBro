@@ -26,7 +26,13 @@
             <button (click)="deleteMeasurement(measurement.id)">Usuń</button>
           </td>
         </tr>
+        <tr>
+          <td colspan="8">
+            <button (click)="addMeasurement()">Dodaj pomiar</button>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
+  <button id="training-button" style="position: absolute; top: 20px; left: 20px; "(click)="goToWorkouts()">TRENINGI</button>
 </div>

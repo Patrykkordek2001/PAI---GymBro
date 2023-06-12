@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 import { WorkoutPreview } from 'src/app/models/workoutPreview.model';
 import { WorkoutService } from 'src/app/services/workout.service';
 
@@ -12,7 +12,11 @@ import { WorkoutService } from 'src/app/services/workout.service';
 export class WorkoutsComponent {
   workouts: WorkoutPreview[] = [];
 
-  constructor(private workoutService: WorkoutService) {}
+  constructor(
+    private workoutService: WorkoutService,
+    private router: Router
+  ) {}
+
   ngOnInit(): void {
     this.workoutService.getAllWorkouts().subscribe((x) => {
       console.log(x);
@@ -21,8 +25,16 @@ export class WorkoutsComponent {
   }
 
   deleteWorkout(measurementId: string) {
-    this.workoutService
-      .deleteWorkout(measurementId)
-      .subscribe((res) => location.reload());
+    this.workoutService.deleteWorkout(measurementId).subscribe((res) => {
+      location.reload();
+    });
+  }
+
+  addWorkout() {
+    this.router.navigate(['/add-workout']);
+  }
+
+  goToMeasurements():void{
+    this.router.navigate(['/measurements']);
   }
 }

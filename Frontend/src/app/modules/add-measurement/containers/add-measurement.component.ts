@@ -31,7 +31,7 @@ export class AddMeasurementComponent {
   submit(): void {
     console.log(this.measurementForm.value);
     this.measurementService.addMeasurement(this.measurementForm.value).subscribe((response) => {
-      //window.location.reload();
+      this.router.navigate(['/measurements']);
     });
   }
 
@@ -39,5 +39,10 @@ export class AddMeasurementComponent {
     this.measurementForm.reset();
     this.measurementForm.markAsPristine();
     this.measurementForm.markAsUntouched();
+  }
+
+  back(): void {
+    this.reset();
+    this.router.navigate(['/measurements']);
   }
 }

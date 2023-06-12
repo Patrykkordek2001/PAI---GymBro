@@ -17,7 +17,6 @@ namespace API.Services
 
         public async Task AddWorkoutAsync(Workout workout)
         {
-            workout.UserID = new Guid("8BD39627-0A1F-4E5F-4745-08DB6B25AAAA");
             await _workoutRepository.AddAsync(workout);
         }
 

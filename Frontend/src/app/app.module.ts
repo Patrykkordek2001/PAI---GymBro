@@ -12,6 +12,7 @@ import { AddWorkoutModule } from './modules/add-workout/add-workout.module';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { WorkoutsModule } from './modules/workouts/workouts.module';
+import { LoginPageModule } from './modules/login/login-page.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WorkoutsModule } from './modules/workouts/workouts.module';
     MeasurementsModule,
     AddWorkoutModule,
     ToastrModule.forRoot(),
-    WorkoutsModule
+    WorkoutsModule,
+    LoginPageModule
     
   ],
   providers: [{

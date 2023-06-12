@@ -14,7 +14,9 @@ namespace API.Models
         public double Waist { get; set; }
         public double Hips { get; set; }
         public double Thighs { get; set; }
-        
-       
+        public Guid? UserID { get; set; }
+        public User User { get; set; }
+
+
     }
 }

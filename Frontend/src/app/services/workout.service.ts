@@ -26,7 +26,7 @@ export class WorkoutService {
 
   deleteWorkout(workoutId: string): Observable<any> {
     return this.httpClient.delete<any>(
-      'http://localhost:7131/api/Measurement/DeleteWorkout/' + workoutId
+      'http://localhost:7131/api/Workout/DeleteWorkout/' + workoutId
     );
   }
 }
